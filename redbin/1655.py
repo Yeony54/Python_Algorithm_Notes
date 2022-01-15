@@ -12,7 +12,9 @@
 
 '''
 heapq를 사용
-left_heap(max heap)과 right_heap(min heap)을 사용하여 자동정렬
+left_heap(max heap)과 right_heap(min heap)을 사용하여 자동정렬되기 때문에
+중간을 기준으로 큰수와 작은수를 정렬하여 문제에 알맞게 활용
+
 heappush()
     L[0]과 비교하여 heappush()
         L[0]보다 작거나 같으면 L에 heappush()
@@ -32,11 +34,11 @@ right_heap = []
 
 n = int(sys.stdin.readline())
 heapq.heappush(left_heap,(-n,n))
-print(left_heap[0])
+print(left_heap[0][1])
 
 for i in range(1,N):
     n = int(sys.stdin.readline())
-    if left_heap[0]>=n :
+    if left_heap[0][1]>=n :
         heapq.heappush(left_heap,(-n,n))
     else : heapq.heappush(right_heap,n)
     if len(left_heap)-len(right_heap) not in [0,1] :
@@ -45,7 +47,7 @@ for i in range(1,N):
         else : 
             a = heapq.heappop(right_heap)
             heapq.heappush(left_heap, (-a,a))
-    print(left_heap[0])
+    print(left_heap[0][1])
 
 
 ''' 

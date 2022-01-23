@@ -1,2 +1,4 @@
 ## Factorial
 
+factorial
+
